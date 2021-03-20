@@ -33,6 +33,7 @@ for ielem=1:nElem
     h = Xe(end) - Xe(1);
     Ke = zeros(nen); 
     fe = zeros(nen,1); 
+    
     % Loop on Gauss points
     for ig = 1:ngaus
         N_ig = N(ig,:);
@@ -43,6 +44,7 @@ for ielem=1:nElem
         s = SourceTerm(x,example); 
         fe = fe + w_ig*(N_ig')*s;
     end
+    
     % Assmebly
     K(Te,Te) = K(Te,Te) + Ke; 
     f(Te) = f(Te) + fe; 
